@@ -3,6 +3,7 @@ package org.studing.catalogue.service;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.studing.catalogue.entity.Product;
 import org.studing.catalogue.repository.ProductRepository;
 
@@ -21,6 +22,7 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
+    @Transactional
     public Product createProduct(String title, String details) {
         return productRepository.save(new Product(null, title, details));
     }
@@ -31,6 +33,7 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
+    @Transactional
     public void updateProduct(Integer id, String title, String details) {
         productRepository.findById(id)
             .ifPresentOrElse(product -> {
@@ -42,6 +45,7 @@ public class DefaultProductService implements ProductService {
     }
 
     @Override
+    @Transactional
     public void delete(Integer id) {
         productRepository.deleteById(id);
     }
