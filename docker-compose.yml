@@ -1,0 +1,10 @@
+services:
+  catalogue_service:
+    image: postgres:15
+    container_name: catalogue_db_container
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: catalogue_db
+      POSTGRES_USER: user_user
+      POSTGRES_PASSWORD: user_password

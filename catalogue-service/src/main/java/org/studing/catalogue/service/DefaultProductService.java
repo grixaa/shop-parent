@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import org.studing.catalogue.entity.Product;
 import org.studing.catalogue.repository.ProductRepository;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
