@@ -10,6 +10,8 @@ import org.studing.catalogue.repository.ProductRepository;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true)
@@ -17,8 +19,12 @@ public class DefaultProductService implements ProductService {
     ProductRepository productRepository;
 
     @Override
-    public Iterable<Product> findAllProducts() {
-        return productRepository.findAll();
+    public Iterable<Product> findAllProducts(String filter) {
+        if (isNotBlank(filter)) {
+            return productRepository.findAllByTitleLikeIgnoreCase(filter);
+        } else {
+            return productRepository.findAll();
+        }
     }
 
     @Override

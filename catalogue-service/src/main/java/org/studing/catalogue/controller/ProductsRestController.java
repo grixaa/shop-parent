@@ -13,8 +13,6 @@ import org.studing.catalogue.controller.payload.NewProductPayload;
 import org.studing.catalogue.entity.Product;
 import org.studing.catalogue.service.ProductService;
 
-import java.util.List;
-
 import static java.util.Map.of;
 import static org.springframework.http.ResponseEntity.created;
 
@@ -26,8 +24,8 @@ public class ProductsRestController {
     ProductService productService;
 
     @GetMapping
-    public Iterable<Product> findProducts() {
-        return productService.findAllProducts();
+    public Iterable<Product> findProducts(@RequestParam(value = "filter", required = false) String filter) {
+        return productService.findAllProducts(filter);
     }
 
     @PostMapping
