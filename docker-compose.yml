@@ -8,3 +8,13 @@ services:
       POSTGRES_DB: catalogue_db
       POSTGRES_USER: user_user
       POSTGRES_PASSWORD: user_password
+
+  authentication_service:
+    image: postgres:15
+    container_name: authentication_db_container
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_DB: authentication_db
+      POSTGRES_USER: auth_username
+      POSTGRES_PASSWORD: auth_password
