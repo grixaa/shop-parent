@@ -14,6 +14,10 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @AllArgsConstructor
 @Entity
 @Table(schema = "catalogue", name = "t_product")
+@NamedQueries(
+    @NamedQuery(
+        name = "Product.findAllByTitleLikeIgnoreCase",
+        query = "select p from Product p where p.title ilike :filter"))
 public class Product {
     @Id
     @GeneratedValue(strategy = IDENTITY)
