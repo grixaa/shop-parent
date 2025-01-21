@@ -26,9 +26,7 @@ public class SecurityBeans {
         return http
             .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
                 .anyRequest()
-                .hasRole("MANAGER")
-
-            )
+                .hasRole("MANAGER"))
             .oauth2Login(withDefaults())
             .build();
     }
