@@ -2,3 +2,20 @@ shop:
   services:
     catalogue:
       uri: http://localhost:8081
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost/realms/shop
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: manager-app
+            client-secret: bQc01y0fmtGpG83rq5cDDHMZH7v7iNWe
+            scope:
+              - openid
+              - view_catalogue
+              - edit_catalogue
+              - microprofile-jwt
