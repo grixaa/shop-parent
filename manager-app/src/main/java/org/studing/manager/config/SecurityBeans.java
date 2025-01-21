@@ -28,6 +28,7 @@ public class SecurityBeans {
                 .anyRequest()
                 .hasRole("MANAGER"))
             .oauth2Login(withDefaults())
+            .oauth2Client(withDefaults())
             .build();
     }
 

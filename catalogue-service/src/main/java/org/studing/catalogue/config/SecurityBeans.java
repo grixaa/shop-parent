@@ -18,9 +18,9 @@ public class SecurityBeans {
         val scopeEditCatalogue = "SCOPE_edit_catalogue";
         return http
             .authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests
-                .requestMatchers(POST, "/catalogue/products/").hasAuthority(scopeEditCatalogue)
-                .requestMatchers(PATCH, "catalogue/products/{productId:\\d}").hasAuthority(scopeEditCatalogue)
-                .requestMatchers(DELETE, "catalogue/products/{productId:\\d}").hasAuthority(scopeEditCatalogue)
+                .requestMatchers(POST, "catalogue-api/products").hasAuthority(scopeEditCatalogue)
+                .requestMatchers(PATCH, "catalogue-api/products/{productId:\\d}").hasAuthority(scopeEditCatalogue)
+                .requestMatchers(DELETE, "catalogue-api/products/{productId:\\d}").hasAuthority(scopeEditCatalogue)
                 .requestMatchers(GET).hasAuthority("SCOPE_view_catalogue")
                 .anyRequest()
                 .denyAll())
@@ -29,5 +29,4 @@ public class SecurityBeans {
             .oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(withDefaults()))
             .build();
     }
-
 }
