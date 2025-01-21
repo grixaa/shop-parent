@@ -2,7 +2,7 @@ spring:
   security:
     user:
       name: catalogue_service_user
-      password: '{noop}password'
+      password: password
       roles:
         - SERVICE
   datasource:

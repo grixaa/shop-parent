@@ -1,12 +1,3 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5434/authentication_db
-    username: auth_username
-    password: auth_password
-  flyway:
-    schemas:
-      - public
-      - user_management
 shop:
   services:
     catalogue:
